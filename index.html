@@ -10,6 +10,7 @@
   <script src="js/swiper-4.1.0.min.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/Lunbo.js" ></script>
   <style>
    /*.neirong {*/
     /*margin-top: 100px;*/
@@ -28,14 +29,36 @@
         font-size: 3rem;
        }
       }
+      * {padding: 0;margin: 0;}
+      body {background: #f3f3f3;}
+      .Box {position: relative;}
+      .Box .content {width: 1200px;margin: 0 auto;}
+      .Box h2 {text-align: center;margin-bottom: 35px;padding-top: 250px;}
+      .Box .Box_con {position: relative;}
+      /*.Box .Box_con .btnl {position: absolute;}
+      .Box .Box_con .btn {display: block;width: 41px;height: 41px;position: absolute;top: 80px;cursor: pointer;}*/
+      /*.Box .Box_con .btnl {background: url(img/jtl02.png) no-repeat center;left: -72px;}
+      .Box .Box_con .btnr {background: url(img/jtr02.png) no-repeat center;right: -72px;}
+      .Box .Box_con .btnl:hover {background: url(img/jtl03.png) no-repeat center;}
+      .Box .Box_con .btnr:hover {background: url(img/jtr03.png) no-repeat center;}*/
+      .Box .Box_con .conbox {position: relative;overflow: hidden;}
+      .Box .Box_con .conbox ul {position: relative;list-style: none;}
+      .Box .Box_con .conbox ul li {float: left;width: 285px;height: 200px;margin-left: 20px;overflow: hidden;}
+      .Box .Box_con .conbox ul li:first-child {margin-left: 0;}
+      .Box .Box_con .conbox ul li img {display: block;width: 285px;height: 200px;transition: all 0.5s;}
+      .Box .Box_con .conbox ul li:hover img {transform: scale(1.1);}
+
+      .Box .BoxSwitch {margin-top: 30px;text-align: center;}
+      .Box .BoxSwitch span {display: inline-block;*display: inline;*zoom: 1;vertical-align: middle;width: 30px;height: 3px;background: #ccc;margin: 0 5px;cursor: pointer;}
+      .Box .BoxSwitch span.cur {background: red;}
   </style>
 
  </head>
- 
+
  <body>
  <div>
  <!--导航-->
-  
+
  <div class="navbar navbar-bg navbar-top navbar-inverse nav-bg" >
   <div class="container">
     <div class="name col-xs-0">
@@ -487,8 +510,9 @@
       </h4>
      </div>
     </a>
-    <div class="container top-margin">
-     <ul class="row content-title_img">
+    <div class="container top-margin Box_con clearfix">
+    <div  class="conbox" id="BoxUl">
+       <ul class="row content-title_img">
       <li class="col-md-1-7 col-xs-4 col-margin">
       <img src="images/chenyahui.jpg">
       <p class="p-center">陈亚辉 主席</p>
@@ -531,31 +555,35 @@
       </li>
      </ul>
     </div>
+    </div>
    </div>
    <script>
-    $(function(){
-     var domLi=$('.content-title_img');
-     var num=0;
-     function DomTime(){
-      for(var i=0;i<domLi.length;i++){
-       domLi[i].index=i;
-       num++;
-       $('.content-title_img').animate({
-        left: '-25.8'*+num+'px'
-       },2000);
+    // $(function(){
+    //  var domLi=$('.content-title_img');
+    //  var num=0;
+    //  function DomTime(){
+    //   for(var i=0;i<domLi.length;i++){
+    //    domLi[i].index=i;
+    //    num++;
+    //    $('.content-title_img').animate({
+    //     left: '-25.8'*+num+'px'
+    //    },2000);
 
-       // console.log(num);
-       if (num==10) {
-        $('.content-title_img').animate({
-         marginTop: '0'
+    //    // console.log(num);
+    //    if (num==10) {
+    //     $('.content-title_img').animate({
+    //      marginTop: '0'
 
-        },0);
-        num=0;}
-      }
-     }
-     setInterval(DomTime,1000);
+    //     },0);
+    //     num=0;}
+    //   }
+    //  }
+    //  setInterval(DomTime,1000);
 
-    })
+    // })
+
+//滚动元素id，左切换按钮，右切换按钮，切换元素个数id,滚动方式，切换方向，是否自动滚动，滚动距离，滚动时间，滚动间隔，显示个数
+      LbMove('BoxUl','btnl','btnr','BoxSwitch',true,'left',true,305,1000,3000,5);
    </script>
 
 
